@@ -33,11 +33,11 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link href={`/posts/${id}`}>Page {id}</Link>
               <br />
-              <small className={utilStyles.lightText}>
+              {/* <small className={utilStyles.lightText}>
                 <Date dateString={date} />
-              </small>
+              </small> */}
             </li>
           ))}
         </ul>
