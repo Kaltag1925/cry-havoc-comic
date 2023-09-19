@@ -28,7 +28,15 @@ export default function Post({ postData }) {
   const imgSrc = `/comic-pages/${postData}.jpg`
     return (
         <Layout>
-          <img src={imgSrc} style={{ width: 'auto', height: 'auto' }}/>
+          <Image
+              priority
+              src = {imgSrc}
+              //className={utilStyles.borderCircle}
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{ width: 'auto', height: 'auto' }}
+            />
 
             <div>
               <Link href={`/posts/${parseInt(postData) - 1}`}> Previous Page</Link>

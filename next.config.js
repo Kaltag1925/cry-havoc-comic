@@ -1,17 +1,22 @@
-// const isGithubActions = process.env.GITHUB_ACTIONS || false
+// next.config.js
 
-// let assetPrefix = ''
-// let basePath = '/'
+const isGithubActions = process.env.GITHUB_ACTIONS || false
 
-// if (isGithubActions) {
-//   // trim off `<owner>/`
-//   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+let assetPrefix = ''
+let basePath = ''
 
-//   assetPrefix = `/${repo}/`
-//   basePath = `/${repo}`
-// }
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
-// module.exports = {
-//   assetPrefix: assetPrefix,
-//   basePath: basePath,
-// }
+  assetPrefix = `/${repo}/`
+  basePath = `/${repo}`
+}
+
+module.exports = {
+  assetPrefix: assetPrefix,
+  basePath: basePath,
+  images: {
+    loader: 'imgix',
+    path: 'kaltag.imgix.net',
+  },
+}
