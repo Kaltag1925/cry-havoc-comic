@@ -4,8 +4,8 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-const name = 'Kaltag';
-export const siteTitle = 'Next.js Sample Website';
+const name = 'Cry Havoc';
+export const siteTitle = 'Cry Havoc Comic';
 
 export default function Layout({ children, home }) {
   return (
