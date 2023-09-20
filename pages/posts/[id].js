@@ -25,7 +25,7 @@ export async function getStaticPaths() {
   }
 
 export default function Post({ postData }) {
-  const imgSrc = `/${process.env.BACKEND_URL}/comic-pages/${postData}.jpg`
+  const imgSrc = `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/comic-pages/${postData}.jpg`
     return (
         <Layout>
           <Image
