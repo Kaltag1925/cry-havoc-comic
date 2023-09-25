@@ -1,0 +1,12 @@
+.image {
+    max-width: 36rem;
+    width: auto;
+    height: auto;
+    margin: 2rem;
+}
+
+.controls {
+    background-color: #403c26;
+    color: whitesmoke;
+
+}

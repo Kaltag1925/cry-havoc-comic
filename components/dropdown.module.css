@@ -1,0 +1,33 @@
+.dropdownMenu {
+    background: #fff;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+    transition: all linear 0.3s;
+    width: fit-content;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .item {
+    color: whitesmoke;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+    color: #000;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+  }
+
+  
+.dropdownbutton {
+    background-color: #d6bc2b;
+    color: whitesmoke;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+}
+
+.dropdownbutton:hover {
+    background-color: #403c26;
+}

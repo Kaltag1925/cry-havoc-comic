@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Link from "next/link";
+import ComicPage from "../../components/comicPage";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -25,19 +26,9 @@ export async function getStaticPaths() {
   }
 
 export default function Post({ postData }) {
-  const imgSrc = `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/comic-pages/${postData}.jpg`
     return (
         <Layout>
-          <Image
-              priority
-              src = {imgSrc}
-              //className={utilStyles.borderCircle}
-              height={0}
-              width={0}
-              sizes="100vw"
-              style={{ width: 'auto', height: 'auto' }}
-            />
-
+          <ComicPage comicPage={postData} />
             <div>
               <Link href={`/posts/${parseInt(postData) - 1}`}> Previous Page</Link>
               <Link href={`/posts/${parseInt(postData) + 1}`}> Next Page</Link>

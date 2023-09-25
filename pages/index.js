@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
@@ -23,13 +24,15 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>
         Cry Havoc is a comic about the Vietnam War. Based on firsthand accounts told by veterans & their families.
-
+        </p>
+        <p>
         Dedicated to Mark McVeigh & Dustoff 237
         </p>
       </section>
 
+
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>Pages</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>

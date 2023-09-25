@@ -3,67 +3,49 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
+import DropdownMenu from './dropdown';
 
 const name = 'Cry Havoc';
 export const siteTitle = 'Cry Havoc Comic';
 
 export default function Layout({ children, home }) {
+
+  const imgSrc = `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/logoresized.png`
+    
   return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
+    <>
+    <div className={styles.header}>
+      <DropdownMenu menuName={"About"} items={[{text: "About Havoc", link: "/about/havoc"},
+        {text: "The People", link: "/about/people"}]}/>
+
+      <DropdownMenu menuName={"Webcomic"} items={[{text: "Start Here", link: "/posts/1"},
+        {text: "Latest Page", link: "/posts/2"}, {text: "Archive", link: "archive"}]}/>
+
+      <a href="https://twitter.com/_CryHavoc/">
+        <Image
+          priority
+          src = {`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/twitter.png`}
+          height={20}
+          width={20}
+          style={{ width: 'auto', height: 'auto' }}
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.png"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src="/images/profile.png"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
+      </a>
+
     </div>
+    <div className={styles.container}>
+        <Head> 
+        </Head>
+         <Image
+            src = {imgSrc}
+            //className={utilStyles.borderCircle}
+            height={258}
+            width={745}
+            fill={false}
+            className={styles.logo}
+        />
+        <main>{children}</main>
+    </div>
+    </>
   );
 }
