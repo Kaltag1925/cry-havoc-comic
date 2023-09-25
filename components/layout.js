@@ -28,7 +28,6 @@ export default function Layout({ children, home }) {
           src = {`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/twitter.png`}
           height={20}
           width={20}
-          style={{ width: 'auto', height: 'auto' }}
         />
       </a>
 
